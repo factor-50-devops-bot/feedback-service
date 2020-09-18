@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<AzureFunctionsVersion>v3</AzureFunctionsVersion>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+		<PackageReference Include="MediatR" Version="8.1.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.8" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.8" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.8" />
+		<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.9" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference ReplaceParameters="true" Include="..\FeedbackService.Handlers\FeedbackService.Handlers.csproj">
+			<Name>FeedbackService.Handlers</Name>
+		</ProjectReference>
+		<ProjectReference ReplaceParameters="true" Include="..\FeedbackService.Mappers\FeedbackService.Mappers.csproj">
+			<Name>FeedbackService.Mappers</Name>
+		</ProjectReference>
+		<ProjectReference ReplaceParameters="true" Include="..\FeedbackService.Repo\FeedbackService.Repo.csproj">
+			<Name>FeedbackService.Repo</Name>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="host.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="local.settings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>Never</CopyToPublishDirectory>
+		</None>
+	</ItemGroup>
+</Project>

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="10.0.0" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference ReplaceParameters="true" Include="..\FeedbackService.Core\FeedbackService.Core.csproj">
+			<Name>FeedbackService.Core</Name>
+		</ProjectReference>
+		<ProjectReference ReplaceParameters="true" Include="..\FeedbackService.Repo\FeedbackService.Repo.csproj">
+			<Name>FeedbackService.Repo</Name>
+		</ProjectReference>
+	</ItemGroup>
+</Project>
