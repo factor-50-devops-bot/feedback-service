@@ -12,6 +12,7 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.8" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.8" />
 		<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.9" />
+		<PackageReference Include="NewRelic.Agent.Api" Version="8.32.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference ReplaceParameters="true" Include="..\FeedbackService.Handlers\FeedbackService.Handlers.csproj">

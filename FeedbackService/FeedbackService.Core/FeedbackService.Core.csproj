@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HelpMyStreet.CoreV3.Contracts" Version="1.1.369" />
     <PackageReference Include="MediatR" Version="8.1.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Domains\Entities\" />
     <Folder Include="Dto\" />
   </ItemGroup>
 

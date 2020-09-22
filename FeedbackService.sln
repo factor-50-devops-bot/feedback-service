@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedbackService.AzureFunction", "FeedbackService\FeedbackService.AzureFunction\FeedbackService.AzureFunction.csproj", "{BB4F95E3-FEDC-4FAD-8DD7-0189985A25A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeedbackService.AzureFunction", "FeedbackService\FeedbackService.AzureFunction\FeedbackService.AzureFunction.csproj", "{BB4F95E3-FEDC-4FAD-8DD7-0189985A25A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedbackService.Core", "FeedbackService\FeedbackService.Core\FeedbackService.Core.csproj", "{D9A2D1F9-FFC2-4ACC-9AFE-55C6BEC33EF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeedbackService.Core", "FeedbackService\FeedbackService.Core\FeedbackService.Core.csproj", "{D9A2D1F9-FFC2-4ACC-9AFE-55C6BEC33EF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedbackService.Handlers", "FeedbackService\FeedbackService.Handlers\FeedbackService.Handlers.csproj", "{06DAF9B3-687A-430C-89FF-54DA98E56AC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeedbackService.Handlers", "FeedbackService\FeedbackService.Handlers\FeedbackService.Handlers.csproj", "{06DAF9B3-687A-430C-89FF-54DA98E56AC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedbackService.Mappers", "FeedbackService\FeedbackService.Mappers\FeedbackService.Mappers.csproj", "{A09ABA06-734C-4126-BF13-334D7F0F7DC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeedbackService.Mappers", "FeedbackService\FeedbackService.Mappers\FeedbackService.Mappers.csproj", "{A09ABA06-734C-4126-BF13-334D7F0F7DC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedbackService.Repo", "FeedbackService\FeedbackService.Repo\FeedbackService.Repo.csproj", "{F2B41DC2-A213-46DC-AB7B-C2153B54D567}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeedbackService.Repo", "FeedbackService\FeedbackService.Repo\FeedbackService.Repo.csproj", "{F2B41DC2-A213-46DC-AB7B-C2153B54D567}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

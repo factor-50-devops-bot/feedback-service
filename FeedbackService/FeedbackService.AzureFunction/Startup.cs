@@ -35,8 +35,13 @@ namespace FeedbackService.AzureFunction
             ConnectionStrings connectionStrings = new ConnectionStrings();
             connectionStringSettings.Bind(connectionStrings);
 
-            builder.Services.AddMediatR(typeof(FunctionAHandler).Assembly);
+            builder.Services.AddMediatR(typeof(PostRecordFeedbackHandler).Assembly);
             builder.Services.AddTransient<IRepository, Repository>();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                    ConfigureDbContextOptionsBuilder(options, connectionStrings.FeedbackService),
+                ServiceLifetime.Transient
+            );
 
             // automatically apply EF migrations
             // DbContext is being created manually instead of through DI as it throws an exception and I've not managed to find a way to solve it yet: 
