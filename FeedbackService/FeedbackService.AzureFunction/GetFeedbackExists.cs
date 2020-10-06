@@ -26,7 +26,7 @@ namespace FeedbackService.AzureFunction
         [FunctionName("GetFeedbackExists")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(bool))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]
             [RequestBodyType(typeof(GetFeedbackExistsRequest), "Get Feedback Exists")] GetFeedbackExistsRequest req,
             ILogger log)
         {
