@@ -10,6 +10,8 @@ using HelpMyStreet.Contracts.FeedbackService.Response;
 using HelpMyStreet.Contracts.Shared;
 using Microsoft.AspNetCore.Http;
 using FeedbackService.Core.Exceptions;
+using System.Net;
+using AzureFunctions.Extensions.Swashbuckle.Attribute;
 
 namespace FeedbackService.AzureFunction
 {
@@ -23,8 +25,10 @@ namespace FeedbackService.AzureFunction
         }
 
         [FunctionName("PostRecordFeedback")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(PostRecordFeedbackResponse))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] PostRecordFeedbackRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]
+            [RequestBodyType(typeof(PostRecordFeedbackRequest), "Post Record Feedback")] PostRecordFeedbackRequest req,
             ILogger log)
         {
 

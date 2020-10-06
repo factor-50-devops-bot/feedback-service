@@ -9,6 +9,8 @@ using HelpMyStreet.Contracts.FeedbackService.Request;
 using HelpMyStreet.Contracts.FeedbackService.Response;
 using HelpMyStreet.Contracts.Shared;
 using Microsoft.AspNetCore.Http;
+using System.Net;
+using AzureFunctions.Extensions.Swashbuckle.Attribute;
 
 namespace FeedbackService.AzureFunction
 {
@@ -22,8 +24,10 @@ namespace FeedbackService.AzureFunction
         }
 
         [FunctionName("GetFeedbackExists")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(bool))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] GetFeedbackExistsRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]
+            [RequestBodyType(typeof(GetFeedbackExistsRequest), "Get Feedback Exists")] GetFeedbackExistsRequest req,
             ILogger log)
         {
             try
