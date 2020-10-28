@@ -8,11 +8,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Web.Http;
+using NewRelic.Api.Agent;
 
 namespace FeedbackService.AzureFunction
 {
     public class HealthCheck
     {
+        [Transaction(Web = true)]
         [FunctionName("HealthCheck")]
         public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req, ILogger log)
