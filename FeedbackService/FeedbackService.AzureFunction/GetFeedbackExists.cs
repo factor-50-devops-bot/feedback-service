@@ -9,6 +9,7 @@ using HelpMyStreet.Contracts.FeedbackService.Request;
 using HelpMyStreet.Contracts.FeedbackService.Response;
 using HelpMyStreet.Contracts.Shared;
 using Microsoft.AspNetCore.Http;
+using NewRelic.Api.Agent;
 
 namespace FeedbackService.AzureFunction
 {
@@ -21,6 +22,7 @@ namespace FeedbackService.AzureFunction
             _mediator = mediator;
         }
 
+        [Transaction(Web = true)]
         [FunctionName("GetFeedbackExists")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] GetFeedbackExistsRequest req,
