@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeedbackService.Mappers", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeedbackService.Repo", "FeedbackService\FeedbackService.Repo\FeedbackService.Repo.csproj", "{F2B41DC2-A213-46DC-AB7B-C2153B54D567}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedbackService.UnitTests", "FeedbackService.UnitTests\FeedbackService.UnitTests.csproj", "{DAB03298-890F-4C09-BD7F-641D5B1D28DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F2B41DC2-A213-46DC-AB7B-C2153B54D567}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2B41DC2-A213-46DC-AB7B-C2153B54D567}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2B41DC2-A213-46DC-AB7B-C2153B54D567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAB03298-890F-4C09-BD7F-641D5B1D28DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB03298-890F-4C09-BD7F-641D5B1D28DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB03298-890F-4C09-BD7F-641D5B1D28DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB03298-890F-4C09-BD7F-641D5B1D28DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,16 +13,20 @@ using FeedbackService.Core.Exceptions;
 using System.Net;
 using AzureFunctions.Extensions.Swashbuckle.Attribute;
 using NewRelic.Api.Agent;
+using HelpMyStreet.Utils.Utils;
+using System.Threading;
 
 namespace FeedbackService.AzureFunction
 {
     public class PostRecordFeedback
     {
         private readonly IMediator _mediator;
+        private readonly ILoggerWrapper<PostRecordFeedbackRequest> _logger;
 
-        public PostRecordFeedback(IMediator mediator)
+        public PostRecordFeedback(IMediator mediator, ILoggerWrapper<PostRecordFeedbackRequest> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
 
         [Transaction(Web = true)]
@@ -31,13 +35,13 @@ namespace FeedbackService.AzureFunction
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]
             [RequestBodyType(typeof(PostRecordFeedbackRequest), "Post Record Feedback")] PostRecordFeedbackRequest req,
-            ILogger log)
+            CancellationToken cancellationToken)
         {
 
             try
             {
-                log.LogInformation("PostRecordFeedback");
-                PostRecordFeedbackResponse response = await _mediator.Send(req);
+                _logger.LogInformation("PostRecordFeedback");
+                PostRecordFeedbackResponse response = await _mediator.Send(req, cancellationToken);
                 return new OkObjectResult(ResponseWrapper<PostRecordFeedbackResponse, FeedbackServiceErrorCode>.CreateSuccessfulResponse(response));
             }
             catch (FeedbackExistsException exc)
@@ -46,7 +50,7 @@ namespace FeedbackService.AzureFunction
             }
             catch (Exception exc)
             {
-                log.LogError("Exception occured in PostRecordFeedback", exc);
+                _logger.LogError("Exception occured in PostRecordFeedback", exc);
                 return new ObjectResult(ResponseWrapper<PostRecordFeedbackResponse, FeedbackServiceErrorCode>.CreateUnsuccessfulResponse(FeedbackServiceErrorCode.InternalServerError, "Internal Error")) { StatusCode = StatusCodes.Status500InternalServerError };
             }
         }            
