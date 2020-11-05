@@ -11,6 +11,7 @@ using HelpMyStreet.Contracts.Shared;
 using Microsoft.AspNetCore.Http;
 using System.Net;
 using AzureFunctions.Extensions.Swashbuckle.Attribute;
+using NewRelic.Api.Agent;
 
 namespace FeedbackService.AzureFunction
 {
@@ -23,6 +24,7 @@ namespace FeedbackService.AzureFunction
             _mediator = mediator;
         }
 
+        [Transaction(Web = true)]
         [FunctionName("GetFeedbackExists")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(bool))]
         public async Task<IActionResult> Run(

@@ -8,12 +8,13 @@
 		<PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
 		<PackageReference Include="MediatR" Version="8.1.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.8" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.8" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.9" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.9" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.9" />
 		<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.9" />
-		<PackageReference Include="NewRelic.Agent.Api" Version="8.32.0" />
+		<PackageReference Include="NewRelic.Agent" Version="8.33.0" />
+		<PackageReference Include="NewRelic.Agent.Api" Version="8.33.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference ReplaceParameters="true" Include="..\FeedbackService.Handlers\FeedbackService.Handlers.csproj">

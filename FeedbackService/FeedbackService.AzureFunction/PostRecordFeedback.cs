@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using FeedbackService.Core.Exceptions;
 using System.Net;
 using AzureFunctions.Extensions.Swashbuckle.Attribute;
+using NewRelic.Api.Agent;
 
 namespace FeedbackService.AzureFunction
 {
@@ -24,6 +25,7 @@ namespace FeedbackService.AzureFunction
             _mediator = mediator;
         }
 
+        [Transaction(Web = true)]
         [FunctionName("PostRecordFeedback")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(PostRecordFeedbackResponse))]
         public async Task<IActionResult> Run(
