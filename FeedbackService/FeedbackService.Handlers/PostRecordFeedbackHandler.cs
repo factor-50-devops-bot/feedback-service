@@ -21,12 +21,21 @@ namespace FeedbackService.Handlers
         {
             try
             {
-                bool success = await _repository.AddFeedback(request);
-                var response = new PostRecordFeedbackResponse()
+                bool feedbackExists = await _repository.FeedbackExists(request.JobId, request.RequestRoleType.RequestRole, request.UserId);
+
+                if (feedbackExists)
                 {
-                    Success = success
-                };
-                return response;
+                    throw new FeedbackExistsException();
+                }
+                else
+                {
+                    bool success = await _repository.AddFeedback(request);
+                    var response = new PostRecordFeedbackResponse()
+                    {
+                        Success = success
+                    };
+                    return response;
+                }
             }
             catch(FeedbackExistsException exc)
             {

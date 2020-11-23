@@ -3,12 +3,15 @@ using FeedbackService.Core.Config;
 using FeedbackService.Core.Interfaces.Repositories;
 using FeedbackService.Handlers;
 using FeedbackService.Repo;
+using HelpMyStreet.Utils.Utils;
 using MediatR;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Azure.WebJobs.Host.Bindings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 [assembly: FunctionsStartup(typeof(FeedbackService.AzureFunction.Startup))]
@@ -28,6 +31,9 @@ namespace FeedbackService.AzureFunction
             .AddEnvironmentVariables();
 
             IConfigurationRoot config = configBuilder.Build();
+
+            builder.Services.TryAdd(ServiceDescriptor.Singleton(typeof(ILogger<>), typeof(Logger<>)));
+            builder.Services.TryAdd(ServiceDescriptor.Singleton(typeof(ILoggerWrapper<>), typeof(LoggerWrapper<>)));
 
             IConfigurationSection connectionStringSettings = config.GetSection("ConnectionStrings");
             builder.Services.Configure<ConnectionStrings>(connectionStringSettings);

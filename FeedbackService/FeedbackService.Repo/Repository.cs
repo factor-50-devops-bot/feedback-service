@@ -22,13 +22,6 @@ namespace FeedbackService.Repo
 
         public async Task<bool> AddFeedback(PostRecordFeedbackRequest request)
         {
-            var feedbackExists = await FeedbackExists(request.JobId, request.RequestRoleType.RequestRole, request.UserId);
-
-            if (feedbackExists)
-            {
-                throw new FeedbackExistsException();
-            }
-
             _context.Feedback.Add(new EntityFramework.Entities.Feedback()
             {
                 JobId = request.JobId,
